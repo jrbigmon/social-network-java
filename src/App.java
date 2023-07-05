@@ -1,5 +1,3 @@
-import java.util.List;
-
 import entities.Comment;
 import entities.Like;
 import entities.People;
@@ -20,37 +18,14 @@ public class App {
         Comment commentFromInteract2 = new Comment(peopleToInteract2, "this post is a sheet");
         post.setComment(commentFromInteract2);
 
-        List<Like> likes = post.getLikes();
-        List<Comment> comments = post.getComments();
-
-        System.out.println("Likes: " + likes.size());
-        likes.forEach(like -> {
-            System.out.println("Date: " + like.getDate());
-            System.out.println("User: " + like.getUser().getName());
-        });
-
-        System.out.println("Comments: " + comments.size());
-        comments.forEach(comment -> {
-            System.out.println("Date: " + comment.getDate());
-            System.out.println("User: " + comment.getUser().getName());
-            System.out.println("Comment: " + comment.getText());
-        });
+        System.out.println(post.toStringComment());
+        System.out.println(post.toStringLikes());
 
         post.setLikes(likeFromInteract1);
 
-        System.out.println("Likes: " + likes.size());
-        likes.forEach(like -> {
-            System.out.println("Date: " + like.getDate());
-            System.out.println("User: " + like.getUser().getName());
-        });
-
         post.removeComment(commentFromInteract2);
 
-        System.out.println("Comments: " + comments.size());
-        comments.forEach(comment -> {
-            System.out.println("Date: " + comment.getDate());
-            System.out.println("User: " + comment.getUser().getName());
-            System.out.println("Comment: " + comment.getText());
-        });
+        System.out.println(post.toStringComment());
+        System.out.println(post.toStringLikes());
     }
 }

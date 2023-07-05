@@ -89,4 +89,39 @@ public class Post {
 
     return false;
   }
+
+  public String toStringComment() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Comments quantity: ");
+    sb.append(comments.size() + "\n");
+
+    comments.forEach(comment -> {
+      sb.append("Date: ");
+      sb.append(comment.getDate() + "\n");
+
+      sb.append("User: ");
+      sb.append(comment.getUser().getName() + "\n");
+
+      sb.append("Comment: ");
+      sb.append(comment.getText() + "\n");
+    });
+
+    return sb.toString();
+  }
+
+  public String toStringLikes() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Likes quantity: ");
+    sb.append(likes.size() + "\n");
+
+    likes.forEach(like -> {
+      sb.append("Date: ");
+      sb.append(like.getDate() + "\n");
+
+      sb.append("User: ");
+      sb.append(like.getUser().getName() + "\n");
+    });
+
+    return sb.toString();
+  }
 }
